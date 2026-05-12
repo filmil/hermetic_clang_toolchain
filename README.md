@@ -67,13 +67,13 @@ The toolchain achieves hermeticity through several mechanisms:
 Add this to your `MODULE.bazel`:
 
 ```starlark
-bazel_dep(name = "hermetic_clang_toolchain", version = "1.0.0")
+bazel_dep(name = "hermetic_clang_toolchain", version = "1.0.1")
 
 hermetic_clang = use_extension("@hermetic_clang_toolchain//clang_toolchain:hermetic_clang.bzl", "hermetic_clang_extension")
 hermetic_clang.use(version = "21.1.0")
 use_repo(hermetic_clang, "hermetic_clang")
 
-register_toolchains("@hermetic_clang_toolchain//clang_toolchain:hermetic_clang_toolchain")
+register_toolchains("@hermetic_clang//clang_toolchain:hermetic_clang_toolchain")
 ```
 
 Add this to your `.bazelrc`:
